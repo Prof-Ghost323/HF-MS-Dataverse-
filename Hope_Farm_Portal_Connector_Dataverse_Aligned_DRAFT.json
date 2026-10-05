@@ -1,0 +1,619 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Hope Farm Portal Connector \u2014 Dataverse Alignment Draft",
+    "description": "Read-only API connector aligned to HopeFarmOperationsHub in HF-PowerPlatformMV. DRAFT: API host, service-account authentication and all response payload schemas remain unverified. This file does not provision Dataverse, perform upserts, or create a Power Query dataflow connection. Do not enable production ingestion until the companion mapping contract is verified.",
+    "version": "1.1.0"
+  },
+  "host": "hfmrp.replit.app",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "X-API-Key"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "paths": {
+    "/guardians": {
+      "get": {
+        "operationId": "getGuardians",
+        "summary": "Read Guardian (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "Guardian",
+            "logicalName": "cr41f_guardian"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/profiles": {
+      "get": {
+        "operationId": "getProfiles",
+        "summary": "Read Guardian, Membership (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "Guardian",
+            "logicalName": "cr41f_guardian"
+          },
+          {
+            "table": "Membership",
+            "logicalName": "cr41f_membership"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/requirements": {
+      "get": {
+        "operationId": "getRequirements",
+        "summary": "Read RequirementDefinition (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "RequirementDefinition",
+            "logicalName": "cr41f_requirementdefinition"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/compliance": {
+      "get": {
+        "operationId": "getCompliance",
+        "summary": "Read ComplianceRecord (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "ComplianceRecord",
+            "logicalName": "cr41f_compliancerecord"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/meetings": {
+      "get": {
+        "operationId": "getMeetings",
+        "summary": "Read Meeting (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "Meeting",
+            "logicalName": "cr41f_meeting"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/photos": {
+      "get": {
+        "operationId": "getPhotos",
+        "summary": "Read Photo (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "Photo",
+            "logicalName": "cr41f_photo"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/pu-courses": {
+      "get": {
+        "operationId": "getPuCourses",
+        "summary": "Read PUCourse (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "PUCourse",
+            "logicalName": "cr41f_pucourse"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/pu-events": {
+      "get": {
+        "operationId": "getPuEvents",
+        "summary": "Read PUEvent (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "PUEvent",
+            "logicalName": "cr41f_puevent"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/pu-resources": {
+      "get": {
+        "operationId": "getPuResources",
+        "summary": "Read PUResource (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "PUResource",
+            "logicalName": "cr41f_puresource"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/calendar-events": {
+      "get": {
+        "operationId": "getCalendarEvents",
+        "summary": "Read CalendarEvent (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "CalendarEvent",
+            "logicalName": "cr41f_calendarevent"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/notifications": {
+      "get": {
+        "operationId": "getNotifications",
+        "summary": "Read Notification (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "Notification",
+            "logicalName": "cr41f_notification"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/volunteer-hours/pending": {
+      "get": {
+        "operationId": "getVolunteerHoursPending",
+        "summary": "Read VolunteerHours (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "VolunteerHours",
+            "logicalName": "cr41f_volunteerhours"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/admin/field-changes": {
+      "get": {
+        "operationId": "getAdminFieldChanges",
+        "summary": "Read FieldChangeRequest (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "FieldChangeRequest",
+            "logicalName": "cr41f_fieldchangerequest"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/admin/profile-photo-requests": {
+      "get": {
+        "operationId": "getAdminProfilePhotoRequests",
+        "summary": "Read ProfilePhotoRequest (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "ProfilePhotoRequest",
+            "logicalName": "cr41f_profilephotorequest"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/admin/calendar-requests": {
+      "get": {
+        "operationId": "getAdminCalendarRequests",
+        "summary": "Read CalendarRequest (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "CalendarRequest",
+            "logicalName": "cr41f_calendarrequest"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/admin/pu-progress/pending": {
+      "get": {
+        "operationId": "getAdminPuProgressPending",
+        "summary": "Read PUProgress (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "PUProgress",
+            "logicalName": "cr41f_puprogress"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    },
+    "/breeze/status": {
+      "get": {
+        "operationId": "getBreezeStatus",
+        "summary": "Read BreezeSyncLog (unverified API contract)",
+        "description": "Read-only source endpoint. Verify route, authentication, response shape and complete paging before mapping to Dataverse. The response schema remains a placeholder intentionally; no API fields have been inferred from destination fields.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Not authenticated \u2014 check the API key connection"
+          },
+          "403": {
+            "description": "Authenticated but not authorized for this resource"
+          }
+        },
+        "x-hf-dataverse-targets": [
+          {
+            "table": "BreezeSyncLog",
+            "logicalName": "cr41f_breezesynclog"
+          }
+        ],
+        "x-hf-contract-status": "unverified"
+      }
+    }
+  },
+  "x-hf-readiness": {
+    "productionReady": false,
+    "note": "Advisory metadata only; connector runtime does not enforce this flag."
+  }
+}

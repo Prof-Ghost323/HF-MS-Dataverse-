@@ -1,0 +1,1031 @@
+{
+  "version": "1.1.0-review",
+  "production_ready": false,
+  "environment_id": "a6a33440-9e55-e3b3-a24e-ca96f059b50f",
+  "solution_unique_name": "HopeFarmOperationsHub",
+  "schema_authority": "LDP App; unmanaged build spec; verify against live Dataverse metadata",
+  "api_host": {
+    "configured": "hfmrp.replit.app",
+    "current_admin_url": "https://hf252.org/admin/",
+    "verified": false,
+    "instruction": "Confirm API host and base path; admin URL does not establish API origin."
+  },
+  "blocking_requirements": [
+    "Verify service-account authentication and API origin",
+    "Replace all placeholder responses with authenticated response contracts",
+    "Confirm live logical field names, types, choice numeric values, and entity-set names",
+    "Define source-system IDs and alternate keys; retain Dataverse GUID primary keys",
+    "Implement lookup resolution, pagination, change tracking and non-destructive upsert",
+    "Test repeated import without duplicates and approval transitions"
+  ],
+  "operations": [
+    {
+      "path": "/guardians",
+      "operation_id": "getGuardians",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "Guardian",
+          "logical_name": "cr41f_guardian",
+          "fields": [
+            {
+              "display_name": "Guardian",
+              "logical_name": "cr41f_guardianid",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "systemrequired",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "FullName",
+              "logical_name": "cr41f_fullname",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "required",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "HFEmail",
+              "logical_name": "cr41f_hfemail",
+              "specified_type": "Single Line Text (Email)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Phone",
+              "logical_name": "cr41f_phone",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "BreezePersonId",
+              "logical_name": "cr41f_breezepersonid",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "CampusGroup",
+              "logical_name": "cr41f_campusgroup",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "MRPCoordinator",
+              "logical_name": "cr41f_mrpcoordinator",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/profiles",
+      "operation_id": "getProfiles",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "Guardian",
+          "logical_name": "cr41f_guardian",
+          "fields": [
+            {
+              "display_name": "Guardian",
+              "logical_name": "cr41f_guardianid",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "systemrequired",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "FullName",
+              "logical_name": "cr41f_fullname",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "required",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "HFEmail",
+              "logical_name": "cr41f_hfemail",
+              "specified_type": "Single Line Text (Email)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Phone",
+              "logical_name": "cr41f_phone",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "BreezePersonId",
+              "logical_name": "cr41f_breezepersonid",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "CampusGroup",
+              "logical_name": "cr41f_campusgroup",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "MRPCoordinator",
+              "logical_name": "cr41f_mrpcoordinator",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        },
+        {
+          "table": "Membership",
+          "logical_name": "cr41f_membership",
+          "fields": [
+            {
+              "display_name": "Membership",
+              "logical_name": "cr41f_membershipid",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "systemrequired",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Guardian",
+              "logical_name": "cr41f_guardian",
+              "specified_type": "Lookup",
+              "required_level": "none",
+              "lookup_target": "Guardian",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "SchoolYear",
+              "logical_name": "cr41f_schoolyear",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Campus",
+              "logical_name": "cr41f_campus",
+              "specified_type": "Lookup",
+              "required_level": "none",
+              "lookup_target": "Campus",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "CampusGroup",
+              "logical_name": "cr41f_campusgroup",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "none",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/requirements",
+      "operation_id": "getRequirements",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "RequirementDefinition",
+          "logical_name": "cr41f_requirementdefinition",
+          "fields": [
+            {
+              "display_name": "Requirement",
+              "logical_name": "cr41f_requirement",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Name",
+              "logical_name": "cr41f_name",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Category",
+              "logical_name": "cr41f_category",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "SupportCategory",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "AppliesTo",
+              "logical_name": "cr41f_appliesto",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/compliance",
+      "operation_id": "getCompliance",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "ComplianceRecord",
+          "logical_name": "cr41f_compliancerecord",
+          "fields": [
+            {
+              "display_name": "Record",
+              "logical_name": "cr41f_record",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Requirement",
+              "logical_name": "cr41f_requirement",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "RequirementDefinition",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Guardian",
+              "logical_name": "cr41f_guardian",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Guardian",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Student",
+              "logical_name": "cr41f_student",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Student",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "SubmittedDate",
+              "logical_name": "cr41f_submitteddate",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "DocumentUrl",
+              "logical_name": "cr41f_documenturl",
+              "specified_type": "Single Line Text / Text (confirm length)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/meetings",
+      "operation_id": "getMeetings",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "Meeting",
+          "logical_name": "cr41f_meeting",
+          "fields": [
+            {
+              "display_name": "Meeting",
+              "logical_name": "cr41f_meeting",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "MeetingDate",
+              "logical_name": "cr41f_meetingdate",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Type",
+              "logical_name": "cr41f_type",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Campus",
+              "logical_name": "cr41f_campus",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Campus",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Name",
+              "logical_name": "cr41f_name",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/photos",
+      "operation_id": "getPhotos",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "Photo",
+          "logical_name": "cr41f_photo",
+          "fields": [
+            {
+              "display_name": "Photo",
+              "logical_name": "cr41f_photo",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Url",
+              "logical_name": "cr41f_url",
+              "specified_type": "Single Line Text / Text (confirm length)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "UploadedBy",
+              "logical_name": "cr41f_uploadedby",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Campus",
+              "logical_name": "cr41f_campus",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Campus",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Event",
+              "logical_name": "cr41f_event",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "PUEvent",
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/pu-courses",
+      "operation_id": "getPuCourses",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "PUCourse",
+          "logical_name": "cr41f_pucourse",
+          "fields": [
+            {
+              "display_name": "Course",
+              "logical_name": "cr41f_course",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Name",
+              "logical_name": "cr41f_name",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Description",
+              "logical_name": "cr41f_description",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/pu-events",
+      "operation_id": "getPuEvents",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "PUEvent",
+          "logical_name": "cr41f_puevent",
+          "fields": [
+            {
+              "display_name": "Event",
+              "logical_name": "cr41f_event",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Name",
+              "logical_name": "cr41f_name",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Description",
+              "logical_name": "cr41f_description",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Date",
+              "logical_name": "cr41f_date",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/pu-resources",
+      "operation_id": "getPuResources",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "PUResource",
+          "logical_name": "cr41f_puresource",
+          "fields": [
+            {
+              "display_name": "Resource",
+              "logical_name": "cr41f_resource",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Name",
+              "logical_name": "cr41f_name",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Description",
+              "logical_name": "cr41f_description",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/calendar-events",
+      "operation_id": "getCalendarEvents",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "CalendarEvent",
+          "logical_name": "cr41f_calendarevent",
+          "fields": [
+            {
+              "display_name": "Event",
+              "logical_name": "cr41f_event",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Title",
+              "logical_name": "cr41f_title",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Date",
+              "logical_name": "cr41f_date",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Campus",
+              "logical_name": "cr41f_campus",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Campus",
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/notifications",
+      "operation_id": "getNotifications",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "Notification",
+          "logical_name": "cr41f_notification",
+          "fields": [
+            {
+              "display_name": "Notification",
+              "logical_name": "cr41f_notification",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Recipient",
+              "logical_name": "cr41f_recipient",
+              "specified_type": "Whole Number (inferred from sample)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Message",
+              "logical_name": "cr41f_message",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "SentDate",
+              "logical_name": "cr41f_sentdate",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "ReadStatus",
+              "logical_name": "cr41f_readstatus",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/volunteer-hours/pending",
+      "operation_id": "getVolunteerHoursPending",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "VolunteerHours",
+          "logical_name": "cr41f_volunteerhours",
+          "fields": [
+            {
+              "display_name": "Record",
+              "logical_name": "cr41f_record",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Guardian",
+              "logical_name": "cr41f_guardian",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Guardian",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Hours",
+              "logical_name": "cr41f_hours",
+              "specified_type": "Decimal/Currency (confirm)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Date",
+              "logical_name": "cr41f_date",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Pending-only endpoint: requires another verified route or change feed to capture approval transitions and history."
+      ]
+    },
+    {
+      "path": "/admin/field-changes",
+      "operation_id": "getAdminFieldChanges",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "FieldChangeRequest",
+          "logical_name": "cr41f_fieldchangerequest",
+          "fields": [
+            {
+              "display_name": "Request",
+              "logical_name": "cr41f_request",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Guardian",
+              "logical_name": "cr41f_guardian",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Guardian",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "FieldName",
+              "logical_name": "cr41f_fieldname",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "OldValue",
+              "logical_name": "cr41f_oldvalue",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "NewValue",
+              "logical_name": "cr41f_newvalue",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "SyncedToBreeze",
+              "logical_name": "cr41f_syncedtobreeze",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/admin/profile-photo-requests",
+      "operation_id": "getAdminProfilePhotoRequests",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "ProfilePhotoRequest",
+          "logical_name": "cr41f_profilephotorequest",
+          "fields": [
+            {
+              "display_name": "Request",
+              "logical_name": "cr41f_request",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Guardian",
+              "logical_name": "cr41f_guardian",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Guardian",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Student",
+              "logical_name": "cr41f_student",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Student",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "PhotoUrl",
+              "logical_name": "cr41f_photourl",
+              "specified_type": "Single Line Text / Text (confirm length)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "SubmittedDate",
+              "logical_name": "cr41f_submitteddate",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/admin/calendar-requests",
+      "operation_id": "getAdminCalendarRequests",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "CalendarRequest",
+          "logical_name": "cr41f_calendarrequest",
+          "fields": [
+            {
+              "display_name": "Request",
+              "logical_name": "cr41f_request",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Title",
+              "logical_name": "cr41f_title",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Date",
+              "logical_name": "cr41f_date",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Campus",
+              "logical_name": "cr41f_campus",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Campus",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": []
+    },
+    {
+      "path": "/admin/pu-progress/pending",
+      "operation_id": "getAdminPuProgressPending",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "PUProgress",
+          "logical_name": "cr41f_puprogress",
+          "fields": [
+            {
+              "display_name": "Progress",
+              "logical_name": "cr41f_progress",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Student",
+              "logical_name": "cr41f_student",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "Student",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Course",
+              "logical_name": "cr41f_course",
+              "specified_type": "Lookup",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": "PUCourse",
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "CompletedDate",
+              "logical_name": "cr41f_completeddate",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Pending-only endpoint: requires another verified route or change feed to capture approval transitions and history."
+      ]
+    },
+    {
+      "path": "/breeze/status",
+      "operation_id": "getBreezeStatus",
+      "source_response_verified": false,
+      "targets": [
+        {
+          "table": "BreezeSyncLog",
+          "logical_name": "cr41f_breezesynclog",
+          "fields": [
+            {
+              "display_name": "Sync",
+              "logical_name": "cr41f_sync",
+              "specified_type": "Primary Key (GUID)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "EntityType",
+              "logical_name": "cr41f_entitytype",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Entity",
+              "logical_name": "cr41f_entity",
+              "specified_type": "Whole Number (inferred from sample)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Status",
+              "logical_name": "cr41f_status",
+              "specified_type": "Choice/Text (confirm app control)",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            },
+            {
+              "display_name": "Timestamp",
+              "logical_name": "cr41f_timestamp",
+              "specified_type": "Date and Time",
+              "required_level": "Confirm from LDP App",
+              "lookup_target": null,
+              "verification_status": "verify_live_metadata"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Health response must be verified as log history or transformed as a timestamped snapshot."
+      ]
+    }
+  ],
+  "source_conflicts": [
+    "FieldChangeRequest in earlier reviewed JSON differs from unmanaged build spec; use specification fields below as proposed mapping, verify live before ingestion",
+    "Photo.Event targets PUEvent in relationship specification; verify source event domain",
+    "Notification.ReadStatus remains unresolved Choice/Text in specification; do not force Boolean conversion without live metadata"
+  ],
+  "recommended_ingestion": "Power Automate custom connector actions with explicit Dataverse upsert; separate from Power Query source connectors",
+  "field_ownership": "Preserve Breeze as system of record for governed Breeze fields; ingestion does not authorize write-back",
+  "lookup_prerequisites": {
+    "Student": "cr41f_ldpstudent",
+    "Guardian": "cr41f_guardian",
+    "Campus": "cr41f_campus",
+    "Membership": "cr41f_membership",
+    "note": "Connector has no dedicated Student or Campus operations; resolve from existing data or independently verified source."
+  }
+}
